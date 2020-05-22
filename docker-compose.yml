@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  CalculoInvestimento.Api:
+    image: ${DOCKER_REGISTRY-}calculoinvestimentoapi
+    build:
+      context: .
+      dockerfile: src/CalculoInvestimento.Api/Dockerfile
+    ports:
+      - "5000:80"
+      - "5001:443"
+    depends_on:
+      - rediscache      
+    networks:
+      - shared
+
+  rediscache:
+    image: redis:alpine
+    ports:
+      - "16400:6379"
+    networks:
+      - shared
+
+networks:
+  shared:
+    driver: bridge
+
