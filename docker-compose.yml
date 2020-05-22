@@ -15,9 +15,9 @@ services:
       - shared
 
   rediscache:
-    image: redis:alpine
+    image: redis
     ports:
-      - "16400:6379"
+      - "16379:6379"
     networks:
       - shared
 

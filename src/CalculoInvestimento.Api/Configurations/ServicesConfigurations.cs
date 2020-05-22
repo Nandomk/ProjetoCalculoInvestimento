@@ -22,7 +22,8 @@ namespace CalculoInvestimento.Api.Configurations
             services.AddDistributedRedisCache(options =>
             {
                 options.Configuration = configuration.GetConnectionString("ConexaoRedis");
-                options.InstanceName = "calculoinvestimento";
+                options.InstanceName = "RedsCalcInvest";
+                
             });
 
             services.AddSwaggerGen(c =>
